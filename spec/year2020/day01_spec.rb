@@ -15,7 +15,7 @@ RSpec.describe Year2020::Day01 do
   describe "part2" do
     it "solves part2" do
       d = Year2020::Day01.new
-      expect(d.part2(input)).to eq(nil)
+      expect(d.part2(input)).to eq(116724144)
     end
   end
 end
