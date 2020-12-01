@@ -1,6 +1,0 @@
-.idea/
-input/**/*
-src/*
-spec/year*
-Gemfile.lock
-.env
