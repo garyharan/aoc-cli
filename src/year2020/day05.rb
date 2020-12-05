@@ -19,27 +19,7 @@ module Year2020
     end
 
     def id
-      RowPosition.new(@code).to_i * 8 + ColumnPosition.new(@code).to_i
-    end
-  end
-
-  class RowPosition
-    def initialize(code)
-      @code = code.slice(0, 7)
-    end
-
-    def to_i
-      @code.tr("BF", "10").to_i(2)
-    end
-  end
-
-  class ColumnPosition
-    def initialize(code)
-      @code = code.slice(7, 3)
-    end
-
-    def to_i
-      @code.tr("RL", "10").to_i(2)
+      @code.slice(0, 7).tr("BF", "10").to_i(2) * 8 + @code.slice(7, 3).tr("RL", "10").to_i(2)
     end
   end
 end

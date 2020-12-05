@@ -13,24 +13,3 @@ RSpec.describe Year2020::Day05 do
     expect(d.part2(input)).to eq(741)
   end
 end
-
-RSpec.describe Year2020::RowPosition.new("FBFBBFFRLR").to_i do
-  it { is_expected.to eq 44 }
-end
-
-RSpec.describe Year2020::ColumnPosition.new("FBFBBFFRLR").to_i do
-  it { is_expected.to eq 5 }
-end
-
-# BFFFBBFRRR: row 70, column 7, seat ID 567
-RSpec.describe Year2020::RowPosition.new("BFFFBBFRRR").to_i do
-  it { is_expected.to eq 70 }
-end
-
-RSpec.describe Year2020::ColumnPosition.new("BFFFBBFRRR").to_i do
-  it { is_expected.to eq 7 }
-end
-
-RSpec.describe Year2020::Day05.new.part1(["BFFFBBFRRR"]) do
-  it { is_expected.to eq 567 }
-end
