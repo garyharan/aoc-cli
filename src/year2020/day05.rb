@@ -15,12 +15,6 @@ module Year2020
 
       (min..max).inject(&:+) - ids.inject(&:+)
     end
-
-    private
-
-    def parse(input)
-
-    end
   end
 
   class RowPosition
