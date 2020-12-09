@@ -28,25 +28,13 @@ module Year2020
     end
 
     def find_contiguous_numbers_adding_up_to(sum)
-      contiguous = []
-
-      catch :contiguous_matched_sum do
-        @stream.each.with_index do |number, index|
-          contiguous = []
-
-          slice = @stream.slice(index, @stream.length - index)
-
-          slice.each.with_index do |number, jindex|
-            contiguous << slice[jindex]
-
-            if contiguous.length > 1
-              next                          if contiguous.sum > sum
-              throw :contiguous_matched_sum if contiguous.sum == sum
-            end
+      (2..@stream.length).each do |n|
+        @stream.each_cons(n) do |contiguous|
+          if contiguous.sum == sum
+            return contiguous.minmax.sum
           end
         end
       end
-      contiguous.minmax.sum
     end
   end
 end
