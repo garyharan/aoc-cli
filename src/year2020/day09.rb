@@ -18,21 +18,16 @@ module Year2020
     end
 
     def find_first_invalid
-      @stream.find.with_index do |number, index|
-        next if index < @lookback_distance
-
-        @stream.slice(index - @lookback_distance, @lookback_distance).combination(2).none? do |x, y|
-          number == x + y
-        end
-      end
+      @stream.each_cons(@lookback_distance + 1).find do |pack|
+        *group, target = pack
+        group.combination(2).none? { |duo| target == duo.sum }
+      end.last
     end
 
     def find_contiguous_numbers_adding_up_to(sum)
       (2..@stream.length).each do |n|
         @stream.each_cons(n) do |contiguous|
-          if contiguous.sum == sum
-            return contiguous.minmax.sum
-          end
+          return contiguous.minmax.sum if contiguous.sum == sum
         end
       end
     end
